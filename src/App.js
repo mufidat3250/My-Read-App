@@ -73,6 +73,12 @@ const BooksApp = () => {
       }
       return b;
     });
+
+    if (!mapOfIdToBook.has(book.id)) {
+      book.shelf = whereTo;
+      updatedBook.push(book);
+    }
+
     setBooks(updatedBook);
     BooksAPI.update(book, whereTo);
   };
